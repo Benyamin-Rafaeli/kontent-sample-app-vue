@@ -18,3 +18,11 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
+
+# Cypress files
+cypress/mochareports/*
+cypress/integration/screenshots/*
+cypress/integration/videos/*
+cypress/reports/*
+cypress/reports/junit/*
+cypress/reports/mocha/*
