@@ -8,7 +8,3 @@ before_script:
   - npm install
 script:
   - npm run serve & npm test
-
-#directories:
-#  - ~/.npm
-#  - ~/.cache
