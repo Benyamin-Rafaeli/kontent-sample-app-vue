@@ -10,7 +10,7 @@ This is a sample website written in JavaScript utilizing the Kentico Kontent Del
 ## Cypress Dashboard
 [![Cypress.io tests](https://img.shields.io/badge/cypress-dashboard-brightgreen.svg)](https://dashboard.cypress.io/projects/2vjems/runs)
 
-```cypress run --record --key 60d5da6e-fabd-40ec-a034-e1f6fc57408f```
+```cypress run --record --key 60d5da6e-fabd-40ec-a034-e1f6fc57408f --group e2e-smoke-specs```
 
 
 ## Application setup

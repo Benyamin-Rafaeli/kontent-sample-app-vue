@@ -15,17 +15,17 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-// module.exports = (on, config) => {
-//   // `on` is used to hook into various events Cypress emits
-//   // `config` is the resolved Cypress config
-// }
-
 module.exports = (on, config) => {
-  on('before:browser:launch', (browser = {}, launchOptions) => {
-    if (browser.family === 'chromium' && browser.name !== 'electron') {
-      launchOptions.push('--disable-dev-shm-usage')
-      return launchOptions
-    }
-  })
+  // `on` is used to hook into various events Cypress emits
+  // `config` is the resolved Cypress config
 }
+
+// module.exports = (on, config) => {
+//   on('before:browser:launch', (browser = {}, launchOptions) => {
+//     if (browser.family === 'chromium' && browser.name !== 'electron') {
+//       launchOptions.push('--disable-dev-shm-usage')
+//       return launchOptions
+//     }
+//   })
+// }
 
