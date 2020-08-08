@@ -7,6 +7,10 @@
 
 
 This is a sample website written in JavaScript utilizing the Kentico Kontent Delivery API to manage and retrieve content. You can register your account for free at <https://app.konent.ai>.
+## Cypress Dashboard
+[![Cypress.io tests](https://img.shields.io/badge/cypress-dashboard-brightgreen.svg)](https://dashboard.cypress.io/projects/2vjems/runs)
+
+```cypress run --record --key 60d5da6e-fabd-40ec-a034-e1f6fc57408f```
 
 ## Application setup
 

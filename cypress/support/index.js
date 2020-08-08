@@ -13,9 +13,8 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-// Import commands.js using ES2015 syntax:
-require('cypress-xpath')
-import './commands'
-
+// import '.support/commands'
+require('./commands')
+// require('cypress-xpath')
+// import cypress/support/commands.
 // Alternatively you can use CommonJS syntax:
-// require('./commands')

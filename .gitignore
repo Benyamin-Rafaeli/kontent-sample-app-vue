@@ -24,5 +24,6 @@ cypress/mochareports/*
 cypress/integration/screenshots/*
 cypress/integration/videos/*
 cypress/reports/*
+cypress/results/*
 cypress/reports/junit/*
 cypress/reports/mocha/*
