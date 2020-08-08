@@ -8,21 +8,23 @@ before_script:
   - npm install
 script:
   - npm install
-  - npm run serve
-addons:
-  apt:
-    packages:
-      - libgconf-2-4
-cache:
+  - npm run cy:verify
+  - npm run serve & npm test
+
+  #addons:
+  #  apt:
+  #    packages:
+  #      - libgconf-2-4
+  #cache:
   # cache both npm modules and Cypress binary
-  directories:
-    - ~/.npm
-    - ~/.cache
-  override:
-    - npm ci
-    - npm run cy:verify
-    - npm test
-  
+directories:
+  - ~/.npm
+  - ~/.cache
+#  override:
+#    - npm ci
+#    - npm run cy:verify
+#    - npm test
+
 #deploy:
 #  provider: surge
 #  project: ./dist/
