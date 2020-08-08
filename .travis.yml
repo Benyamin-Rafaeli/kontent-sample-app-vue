@@ -7,27 +7,8 @@ node_js:
 before_script:
   - npm install
 script:
-  - npm install
-  - npm run cy:verify
   - npm run serve & npm test
 
-  #addons:
-  #  apt:
-  #    packages:
-  #      - libgconf-2-4
-  #cache:
-  # cache both npm modules and Cypress binary
 directories:
   - ~/.npm
   - ~/.cache
-#  override:
-#    - npm ci
-#    - npm run cy:verify
-#    - npm test
-
-#deploy:
-#  provider: surge
-#  project: ./dist/
-#  domain: https://kontent-sample-app-vue.surge.sh
-#  skip_cleanup: true
-
