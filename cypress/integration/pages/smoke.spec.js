@@ -2,42 +2,32 @@
 
 describe('Smoke tests for Dancing Goat site', () => {
 
-  beforeEach(() => cy.visit('/'))
+  beforeEach(() => {
+    cy.visit('/')
+    cy.fixture('data.json').as('data')
+  })
 
   context('en', () => {
-
-    it('navigate and validate url', () => cy.navigateAndValidate('en'))
-
     it('validate navigation bar [Cypress.Promise example]', () => {
-      cy.navigateAndValidate('en')
-
-      const myArray = ['Home', 'Product catalog', 'Articles', 'About us', 'Cafes', 'Contact']
-      cy.validatePanelByPromise(myArray)
+      cy.get('@data').then(data => cy.navigateAndValidate(data.en))
+      cy.get('@data').then(data => cy.validatePanelByPromise(data.en_nav_panel))
     })
 
     it('validate navigation bar [Cypress.Each example]', () => {
-      cy.navigateAndValidate('en')
-
-      const myArray = ['Home', 'Product catalog', 'Articles', 'About us', 'Cafes', 'Contact', 'English', 'Español']
-      cy.validatePanelByEach(myArray)
+      cy.get('@data').then(data => cy.navigateAndValidate(data.en))
+      cy.get('@data').then(data => cy.validatePanelByEach(data.en_nav_panel))
     })
   })
 
   context('es', () => {
-    it('navigate and validate url', () => cy.navigateAndValidate('es'))
-
     it('validate navigation bar [Cypress.Promise example]', () => {
-      cy.navigateAndValidate('es')
-
-      const myArray = ['Inicio', 'Tienda', 'Artículos', 'Quiénes somos', 'Cafés', 'Contacto']
-      cy.validatePanelByPromise(myArray)
+      cy.get('@data').then(data => cy.navigateAndValidate(data.es))
+      cy.get('@data').then(data => cy.validatePanelByPromise(data.es_nav_panel))
     })
 
     it('validate navigation bar [Cypress.Each example]', () => {
-      cy.navigateAndValidate('es')
-
-      const myArray = ['Inicio', 'Tienda', 'Artículos', 'Quiénes somos', 'Cafés', 'Contacto', 'English', 'Español']
-      cy.validatePanelByEach(myArray)
+      cy.get('@data').then(data => cy.navigateAndValidate(data.es))
+      cy.get('@data').then(data => cy.validatePanelByEach(data.es_nav_panel))
     })
   })
 

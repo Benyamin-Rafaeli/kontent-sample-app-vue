@@ -1,14 +1,31 @@
-dist: trusty
-language: node_js
+dist:
+  - trusty
+language:
+  - node_js
 node_js:
-- "stable"
+  - stable
 before_script:
-- npm install
+  - npm install
 script:
-- npm run build
-deploy:
-  provider: surge
-  project: ./dist/
-  domain: https://kontent-sample-app-vue.surge.sh
-  skip_cleanup: true
+  - npm install
+  - npm run serve
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
+cache:
+  # cache both npm modules and Cypress binary
+  directories:
+    - ~/.npm
+    - ~/.cache
+  override:
+    - npm ci
+    - npm run cy:verify
+    - npm test
+  
+#deploy:
+#  provider: surge
+#  project: ./dist/
+#  domain: https://kontent-sample-app-vue.surge.sh
+#  skip_cleanup: true
 
