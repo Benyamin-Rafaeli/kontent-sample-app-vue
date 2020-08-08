@@ -4,9 +4,9 @@ language:
   - node_js
 node_js:
   - stable
-before_script:
-  - npm install
-script:
-  - npm run serve & npm test
 addons:
   chrome: stable
+before_script:
+    - npm install
+script:
+    - npm run serve & npm test
