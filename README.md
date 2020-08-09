@@ -33,8 +33,8 @@ This is a sample website written in JavaScript utilizing the Kentico Kontent Del
 2. Cypress Fixtures
 3. Cypress Aliases and Async Challenges
 4. Cypress Parallelization
-5. Continuous Integration (Travis)
-6. Cypress Dashboard
+5. Continuous Integration (Travis) https://travis-ci.com/github/Benyamin-Rafaeli/kontent-sample-app-vue
+6. Cypress Dashboard https://dashboard.cypress.io/projects/2vjems/runs
 
 ## Travis CI Output
 <img src="./public/travis_cli_output.png">
