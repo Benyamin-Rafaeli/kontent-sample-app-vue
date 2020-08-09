@@ -5,14 +5,6 @@
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
 [![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
 
-
-This is a sample website written in JavaScript utilizing the Kentico Kontent Delivery API to manage and retrieve content. You can register your account for free at <https://app.konent.ai>.
-## Cypress Dashboard
-
-[![Cypress.io tests](https://img.shields.io/badge/cypress-dashboard-brightgreen.svg)](https://dashboard.cypress.io/projects/2vjems/runs)
-
-<img src="./public/cypress_dashboard.gif">
-
 ## Application setup
 
 1. Install the latest version of NodeJS and npm. You can download both at <https://nodejs.org/en/download/>.
@@ -21,6 +13,13 @@ This is a sample website written in JavaScript utilizing the Kentico Kontent Del
 4. Type `npm install` to install required npm packages.
 5. Type `npm run serve` to start a development server.
 6. The application opens in your browser at <http://localhost:8080>.
+
+This is a sample website written in JavaScript utilizing the Kentico Kontent Delivery API to manage and retrieve content. You can register your account for free at <https://app.konent.ai>.
+## Cypress Dashboard
+
+[![Cypress.io tests](https://img.shields.io/badge/cypress-dashboard-brightgreen.svg)](https://dashboard.cypress.io/projects/2vjems/runs)
+
+<img src="./public/cypress_dashboard.gif">
 
 ## Cypress testing setup
 
@@ -32,9 +31,10 @@ This is a sample website written in JavaScript utilizing the Kentico Kontent Del
 
 1. Cypress Custom Commands
 2. Cypress Fixtures
-3. Cypress Parallelization
-4. Continuous Integration (Travis)
-5. Cypress Dashboard
+3. Cypress Aliases and Async Challenges
+4. Cypress Parallelization
+5. Continuous Integration (Travis)
+6. Cypress Dashboard
 
 ## Travis CI Output
 <img src="./public/travis_cli_output.png">

@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('Smoke tests for Dancing Goat site', () => {
+describe('Store tests for Dancing Goat site', () => {
 
   beforeEach(() => {
     cy.visit('/')
@@ -9,25 +9,45 @@ describe('Smoke tests for Dancing Goat site', () => {
 
   context('en', () => {
     it('validate products in store', () => {
-      cy.get('@data').then(data => cy.navigateAndValidate(data.en))
-      cy.contains('Product catalog').click()
+      cy.get('@data').then(data => {
+        cy.navigateToCoffee(data.en)
 
-      cy.get('#product-list > div').as('products')
-      cy.get('@products').then(prod => {
-        // validate count
-        expect(prod.length).eq(2)
-        // validate product title
-        expect(prod.find('h1')[0].textContent).eq('Brazil Natural Barra Grande')
-        expect(prod.find('.product-tile-price')[0].textContent.trim()).eq('$8.50')
-        // validate product price
-        expect(prod.find('h1')[1].textContent).eq('Kenya Gakuyuni AA')
-        expect(prod.find('.product-tile-price')[1].textContent.trim()).eq('$10.50')
+        cy.get('#product-list > div').as('products')
+        cy.get('@products').then(prod => {
+          // validate count
+          expect(prod.length).eq(2)
+          // validate product title
+          expect(prod.find('h1')[0].textContent).eq(data.brazil.title)
+          expect(prod.find('.product-tile-price')[0].textContent.trim()).contain(data.brazil.price)
+          // validate product price
+          expect(prod.find('h1')[1].textContent).eq(data.kenya.title)
+          expect(prod.find('.product-tile-price')[1].textContent.trim()).contain(data.kenya.price)
+        })
       })
     })
 
-    xit('validate navigation bar [Cypress.Each example]', () => {
-      cy.get('@data').then(data => cy.navigateAndValidate(data.en))
-      cy.get('@data').then(data => cy.validatePanelByEach(data.en_nav_panel))
+    it('validate "Wet (Washed)" checkbox functionality', () => {
+      cy.get('@data').then(data => {
+        cy.navigateToCoffee(data.en)
+        cy.validateProduct(data.kenya)
+      })
+    })
+
+    it('validate "Dry (Natural)" checkbox functionality', () => {
+      cy.get('@data').then(data => {
+        cy.navigateToCoffee(data.en)
+        cy.validateProduct(data.brazil)
+      })
+    })
+
+    it('validate "Semi-dry" checkbox functionality', () => {
+      cy.get('@data').then(data => {
+        cy.navigateToCoffee(data.en)
+
+        cy.contains('Semi-dry').click()
+        cy.get('#product-list').as('products')
+        cy.get('@products').then(prod => expect(prod.length).eq(1))
+      })
     })
   })
 

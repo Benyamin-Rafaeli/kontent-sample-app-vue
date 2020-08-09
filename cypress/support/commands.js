@@ -28,3 +28,24 @@ Cypress.Commands.add('validatePanelByEach', (myArray) => {
       expect($el[0].textContent).to.equal(myArray[index])
     })
 })
+
+Cypress.Commands.add('navigateToCoffee', (lang) => {
+  cy.navigateAndValidate(lang)
+  const prod_catalog = lang === 'en' ? 'Product catalog' : 'Tienda'
+  cy.contains(prod_catalog).click()
+  cy.get('.router-link-exact-active').click()
+  // const coffee_catalog = lang === 'en' ? 'Coffees' : 'Cafés'
+  // cy.contains(coffee_catalog).click()
+})
+
+Cypress.Commands.add('validateProduct', (p) => {
+  cy.contains(p.type).click()
+  cy.get('#product-list > div').as('products')
+  cy.get('@products').then(prod => {
+    // validate count
+    expect(prod.length).eq(1)
+    expect(prod.find('h1')[0].textContent).eq(p.title)
+    expect(prod.find('.product-tile-price')[0].textContent.trim()).contain(p.price)
+  })
+})
+
