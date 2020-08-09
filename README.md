@@ -11,6 +11,8 @@ This is a sample website written in JavaScript utilizing the Kentico Kontent Del
 
 [![Cypress.io tests](https://img.shields.io/badge/cypress-dashboard-brightgreen.svg)](https://dashboard.cypress.io/projects/2vjems/runs)
 
+<img src="./public/cypress_dashboard.gif">
+
 ## Application setup
 
 1. Install the latest version of NodeJS and npm. You can download both at <https://nodejs.org/en/download/>.
@@ -26,5 +28,15 @@ This is a sample website written in JavaScript utilizing the Kentico Kontent Del
 2. ```cd kontent-sample-app-vue&& npm i```
 3. ```npm test```
 
+## Implemented the following:
+
+1. Cypress Custom Commands
+2. Cypress Fixtures
+3. Cypress Parallelization
+4. Continuous Integration (Travis)
+5. Cypress Dashboard
+
 ## Travis CI Output
 <img src="./public/travis_cli_output.png">
+
+
