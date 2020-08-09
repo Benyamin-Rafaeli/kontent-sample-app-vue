@@ -6,8 +6,9 @@ node_js:
   - stable
 #addons:
 #  chrome: stable
-before_script:
-  - npm install
+
+#before_script:
+#  - npm install
 
 cache:
   directories:
@@ -23,13 +24,12 @@ defaults: &defaults
     - kill $(jobs -p) || true
 jobs:
   include:
-#    ## we have multiple jobs to execute using just a single stage
-#    ## but we can pass group name via environment variable to Cypress test runner
-#    - stage: test
-#      env:
-#        - STAGE_NAME="1x-electron on Travis CI"
-#      <<: *defaults
-    ## run tests in parallel by including several test jobs with same name variable
+    ## we have multiple jobs to execute using just a single stage
+    - stage: test
+      env:
+        - STAGE_NAME="1x-electron on Travis CI"
+      <<: *defaults
+    # run tests in parallel by including several test jobs with same name variable
     - stage: test
       env:
         - STAGE_NAME="4x-electron on Travis CI"
