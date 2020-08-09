@@ -5,7 +5,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "npx cypress run --record --key 60d5da6e-fabd-40ec-a034-e1f6fc57408f --group e2e-smoke-specs --parallel"
+    "test": "npx cypress run --record --key 60d5da6e-fabd-40ec-a034-e1f6fc57408f --group e2e-smoke-specs --parallel",
+    "cypress:open": "cypress open"
   },
   "lint-staged": {
     "*.{js,vue}": [
