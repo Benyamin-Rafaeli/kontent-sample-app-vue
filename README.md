@@ -26,3 +26,5 @@ This is a sample website written in JavaScript utilizing the Kentico Kontent Del
 2. ```cd kontent-sample-app-vue&& npm i```
 3. ```npm test```
 
+## Travis CI Output
+<img src="./public/travis_cli_output.png">
