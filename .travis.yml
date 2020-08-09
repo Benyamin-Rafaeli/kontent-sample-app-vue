@@ -58,14 +58,4 @@ jobs:
         - STAGE_NAME="4x-electron on Travis CI"
       <<: *defaults
 
-  # Set formatting for the message. Can be either "Markdown" or "HTML"
-  PARSE_MODE="Markdown"
-
-  # Use built-in Travis variables to check if all previous steps passed:
-  if [ $TRAVIS_TEST_RESULT -ne 0 ]; then
-  build_status="failed"
-  else
-  build_status="succeeded"
-  fi
-
 
