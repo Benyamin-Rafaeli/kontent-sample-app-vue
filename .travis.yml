@@ -4,15 +4,12 @@ language:
   - node_js
 node_js:
   - stable
-addons:
-  chrome: stable
+#addons:
+#  chrome: stable
 before_script:
   - npm install
-#script:
-#  - npm run serve & npm test
 
 cache:
-  ## cache both npm modules and Cypress binary
   directories:
     - ~/.npm
     - ~/.cache
@@ -22,24 +19,16 @@ cache:
 
 defaults: &defaults
   script:
-    ## print all Travis environment variables for debugging
-#    - $(npm bin)/print-env TRAVIS
-#    - npm run start:ci &
     - npm run serve & npm test
-    #    - npm run cy:run -- --record --parallel --group $STAGE_NAME
-#    - npm run cy:npx cypress run --record --key 60d5da6e-fabd-40ec-a034-e1f6fc57408f --parallel --group 4x-electron on Travis CI
-
-    ## after all tests finish running we need
-    ## to kill all background jobs (like "npm start &")
     - kill $(jobs -p) || true
 jobs:
   include:
-    ## we have multiple jobs to execute using just a single stage
-    ## but we can pass group name via environment variable to Cypress test runner
-    - stage: test
-      env:
-        - STAGE_NAME="1x-electron on Travis CI"
-      <<: *defaults
+#    ## we have multiple jobs to execute using just a single stage
+#    ## but we can pass group name via environment variable to Cypress test runner
+#    - stage: test
+#      env:
+#        - STAGE_NAME="1x-electron on Travis CI"
+#      <<: *defaults
     ## run tests in parallel by including several test jobs with same name variable
     - stage: test
       env:
