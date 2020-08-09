@@ -4,12 +4,8 @@ language:
   - node_js
 node_js:
   - stable
-#addons:
-#  chrome: stable
-
-#before_script:
-#  - npm install
-
+before_script:
+  - npm install
 cache:
   directories:
     - ~/.npm
@@ -17,7 +13,6 @@ cache:
   override:
     - npm ci
     - npm run cy:verify
-
 defaults: &defaults
   script:
     - npm run serve & npm test
