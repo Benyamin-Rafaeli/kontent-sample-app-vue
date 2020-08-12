@@ -1,8 +1,26 @@
 {
   "en": "en",
   "es": "es",
-  "en_nav_panel": ["Home","Product catalog","Articles","About us","Cafes","Contact","English","Español"],
-  "es_nav_panel": ["Inicio","Tienda","Artículos","Quiénes somos","Cafés","Contacto","English","Español"],
+  "en_nav_panel": [
+    "Home",
+    "Product catalog",
+    "Articles",
+    "About us",
+    "Cafes",
+    "Contact",
+    "English",
+    "Español"
+  ],
+  "es_nav_panel": [
+    "Inicio",
+    "Tienda",
+    "Artículos",
+    "Quiénes somos",
+    "Cafés",
+    "Contacto",
+    "English",
+    "Español"
+  ],
   "brazil": {
     "title": "Brazil Natural Barra Grande",
     "price": "8.50",
@@ -12,5 +30,16 @@
     "title": "Kenya Gakuyuni AA",
     "price": "10.50",
     "type": "Wet (Washed)"
+  },
+  "brewers": {
+    "Aerobie": {
+      "title": "AeroPress",
+      "price": "25.90"
+    },
+    "Hario": {
+      "title": "Hario V60",
+      "price": "15.90"
+    }
   }
 }
+

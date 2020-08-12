@@ -8,7 +8,7 @@ describe('Store tests for Dancing Goat site', () => {
   })
 
   context('en', () => {
-    it('validate products in store', () => {
+    it('validate Coffee products in store', () => {
       cy.get('@data').then(data => {
         cy.navigateToCoffee(data.en)
 
@@ -49,6 +49,49 @@ describe('Store tests for Dancing Goat site', () => {
         cy.get('@products').then(prod => expect(prod.length).eq(1))
       })
     })
+
+    it('validate Brewers products in store', () => {
+      cy.get('@data').then(data => {
+        cy.navigateToBrewers(data.en)
+
+        // cy.log(data.brewers.Aerobie)
+
+        cy.get('#product-list > div').as('products')
+
+
+        cy.get('@products').each(prod => {
+          // cy.wrap(prod.text())
+          assert.deepEqual({ id: '1' }, { id: '1' })
+          expect((prod).find('.product-heading').text()).to.deep(data.brewers.Aerobie)
+
+          // cy.wrap((prod).find('.product-heading').text())
+          // cy.wrap((prod).find('.product-tile-price').text())
+          // cy.log(data.brewers.Aerobie)
+          // // validate count
+          // expect(prod.length).eq(2)
+          // // validate product title
+          // expect(prod.find('h1')[0].textContent).eq(data.brazil.title)
+          // expect(prod.find('.product-tile-price')[0].textContent.trim()).contain(data.brazil.price)
+          // // validate product price
+          // expect(prod.find('h1')[1].textContent).eq(data.kenya.title)
+          // expect(prod.find('.product-tile-price')[1].textContent.trim()).contain(data.kenya.price)
+        })
+      })
+
+      // cy.get('#product-list > div').as('products')
+      // cy.get('@products').then(prod => {
+      //   // validate count
+      //   expect(prod.length).eq(2)
+      //   // validate product title
+      //   expect(prod.find('h1')[0].textContent).eq(data.brazil.title)
+      //   expect(prod.find('.product-tile-price')[0].textContent.trim()).contain(data.brazil.price)
+      //   // validate product price
+      //   expect(prod.find('h1')[1].textContent).eq(data.kenya.title)
+      //   expect(prod.find('.product-tile-price')[1].textContent.trim()).contain(data.kenya.price)
+      // })
+      // })
+    })
+
   })
 
 })

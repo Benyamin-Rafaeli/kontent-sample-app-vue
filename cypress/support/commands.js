@@ -38,6 +38,33 @@ Cypress.Commands.add('navigateToCoffee', (lang) => {
   // cy.contains(coffee_catalog).click()
 })
 
+Cypress.Commands.add('navigateToBrewers', (lang) => {
+  cy.navigateAndValidate(lang)
+  const prod_catalog = lang === 'en' ? 'Product catalog' : 'Tienda'
+  cy.contains(prod_catalog).click()
+
+  cy
+    .get('.store-menu-list.row')
+    .find('li')
+    .each($el => {
+      if ($el.text() === 'Brewers') cy.wrap($el).click()
+    })
+
+  // cy.get('.store-menu-list.row').find('li').as('panel')
+  // cy.get('@panel').then(p => {
+  //   let aaa = p.find('a').text()
+  //   console.log(aaa)
+  //   cy.get(p[1]).click()
+  // cy.log(p.find('a')[0].textContent)
+  // cy.log(p.find('a')[1].textContent)
+  // })
+  // cy.get('.store-menu-list').find('Brewers').click()
+
+  // cy.get('.router-link-exact-active').click()
+  // const coffee_catalog = lang === 'en' ? 'Coffees' : 'Cafés'
+  // cy.contains(coffee_catalog).click()
+})
+
 Cypress.Commands.add('validateProduct', (p) => {
   cy.contains(p.type).click()
   cy.get('#product-list > div').as('products')
