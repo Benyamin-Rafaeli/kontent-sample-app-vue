@@ -8,17 +8,19 @@ node_js:
 #  directories:
 #    - ~/.npm
 #    - ~/.cache
+
 addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+  chrome: stable
 
   override:
     - npm ci
     - npm run cy:verify
-#    - google-chrome --version
+    - npm google-chrome --version
+    - 
+before_script:
+  - 'export DISPLAY=:99.0'
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  - sleep 3
 defaults: &defaults
   script:
     - npm run serve & npm test
