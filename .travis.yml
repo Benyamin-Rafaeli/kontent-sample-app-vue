@@ -4,10 +4,15 @@ language:
   - node_js
 node_js:
   - stable
-cache:
-  directories:
-    - ~/.npm
-    - ~/.cache
+#cache:
+#  directories:
+#    - ~/.npm
+#    - ~/.cache
+chrome:
+  - stable
+before_install:
+  - google-chrome-stable --disable-gpu
+
   override:
     - npm ci
     - npm run cy:verify
