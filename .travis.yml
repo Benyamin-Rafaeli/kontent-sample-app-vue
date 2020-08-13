@@ -12,14 +12,15 @@ node_js:
 addons:
   chrome: stable
 
-  override:
-    - npm ci
-    - npm run cy:verify
-    - npm google-chrome --version
-    - 
+override:
+  - npm ci
+  - npm run cy:verify
+  - run chrome-driver --version
+
 before_script:
-  - 'export DISPLAY=:99.0'
-  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+#  - 'export DISPLAY=:99.0'
+#  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  - chrome-driver --version
   - sleep 3
 defaults: &defaults
   script:
