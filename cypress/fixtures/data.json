@@ -31,15 +31,17 @@
     "price": "10.50",
     "type": "Wet (Washed)"
   },
-  "brewers": {
-    "Aerobie": {
+  "brewers": [
+    {
+      "manufacture": "Aerobie",
       "title": "AeroPress",
       "price": "25.90"
     },
-    "Hario": {
+    {
+      "manufacture": "Hario",
       "title": "Hario V60",
       "price": "15.90"
     }
-  }
+  ]
 }
 
