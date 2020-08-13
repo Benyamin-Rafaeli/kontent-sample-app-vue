@@ -8,10 +8,12 @@ node_js:
 #  directories:
 #    - ~/.npm
 #    - ~/.cache
-chrome:
-  - stable
-before_install:
-  - google-chrome-stable --disable-gpu
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
 
   override:
     - npm ci
