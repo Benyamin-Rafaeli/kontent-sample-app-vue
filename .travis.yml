@@ -4,6 +4,7 @@ language:
   - node_js
 node_js:
   - stable
+
 #cache:
 #  directories:
 #    - ~/.npm
@@ -12,15 +13,15 @@ node_js:
 override:
   - npm ci
   - npm run cy:verify
-  - run chrome-driver --version
 
 addons:
   chrome: stable
 
 before_script:
-  - LATEST_CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"`
-  - curl "https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
-  - unzip chromedriver_linux64.zip -d ~/bin
+  - run chromedriver --version
+#  - LATEST_CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"`
+#  - curl "https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
+#  - unzip chromedriver_linux64.zip -d ~/bin
 
 defaults: &defaults
   script:
