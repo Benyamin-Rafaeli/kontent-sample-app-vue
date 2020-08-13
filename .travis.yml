@@ -9,19 +9,19 @@ node_js:
 #    - ~/.npm
 #    - ~/.cache
 
-addons:
-  chrome: stable
-
 override:
   - npm ci
   - npm run cy:verify
   - run chrome-driver --version
 
+addons:
+  chrome: stable
+
 before_script:
-#  - 'export DISPLAY=:99.0'
-#  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-  - chrome-driver --version
-  - sleep 3
+  - LATEST_CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"`
+  - curl "https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
+  - unzip chromedriver_linux64.zip -d ~/bin
+
 defaults: &defaults
   script:
     - npm run serve & npm test
