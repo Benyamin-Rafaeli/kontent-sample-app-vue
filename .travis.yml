@@ -18,15 +18,8 @@ install: npm ci
 
 defaults: &defaults
   script:
-    - echo ">>>>>>>>> CONTAINERS [defaults] FILES <<<<<<<<<<<<"
     - npm run serve & npm test
     - kill $(jobs -p) || true
-    # print all Travis environment variables for debugging
-    - echo $TRAVIS_COMMIT
-    - echo $TRAVIS_TAG
-    - echo $TRAVIS_BRANCH
-    - echo $TRAVIS_BUILD_NUMBER
-    - echo $TRAVIS_REPO_SLUG
 jobs:
   include:
     - stage: test
