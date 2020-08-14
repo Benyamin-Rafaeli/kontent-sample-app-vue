@@ -5,7 +5,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "npx cypress run --record --key 60d5da6e-fabd-40ec-a034-e1f6fc57408f --group 4x-electron on Travis CI --parallel --browser firefox"
+    "cy:run:electron": "npx cypress run --record --key 60d5da6e-fabd-40ec-a034-e1f6fc57408f --group electron on Travis CI --parallel --browser electron",
+    "cy:run:chrome": "npx cypress run --record --key 60d5da6e-fabd-40ec-a034-e1f6fc57408f --group chrome on Travis CI --parallel --browser chrome",
+    "cy:run:firefox": "npx cypress run --record --key 60d5da6e-fabd-40ec-a034-e1f6fc57408f --group firefox on Travis CI --parallel --browser firefox"
   },
   "lint-staged": {
     "*.{js,vue}": [
