@@ -3,7 +3,7 @@
 describe('Store tests for Dancing Goat site', () => {
 
   beforeEach(() => {
-    cy.visit('/', {timeout: 10000})
+    cy.visit('/')
     cy.fixture('data.json').as('data')
   })
 
