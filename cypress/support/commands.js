@@ -49,20 +49,6 @@ Cypress.Commands.add('navigateToBrewers', (lang) => {
     .each($el => {
       if ($el.text() === 'Brewers') cy.wrap($el).click()
     })
-
-  // cy.get('.store-menu-list.row').find('li').as('panel')
-  // cy.get('@panel').then(p => {
-  //   let aaa = p.find('a').text()
-  //   console.log(aaa)
-  //   cy.get(p[1]).click()
-  // cy.log(p.find('a')[0].textContent)
-  // cy.log(p.find('a')[1].textContent)
-  // })
-  // cy.get('.store-menu-list').find('Brewers').click()
-
-  // cy.get('.router-link-exact-active').click()
-  // const coffee_catalog = lang === 'en' ? 'Coffees' : 'Cafés'
-  // cy.contains(coffee_catalog).click()
 })
 
 Cypress.Commands.add('validateProduct', (p) => {
@@ -75,4 +61,10 @@ Cypress.Commands.add('validateProduct', (p) => {
     expect(prod.find('.product-tile-price')[0].textContent.trim()).contain(p.price)
   })
 })
+
+// Cypress.Commands.overwrite('visit', (...params) => {
+//   cy.visit('/', {timeout: 10000})
+//   return cy.fixture('data.json').as('data')
+// })
+
 

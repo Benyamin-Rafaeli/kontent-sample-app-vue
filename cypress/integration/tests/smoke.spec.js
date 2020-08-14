@@ -3,7 +3,7 @@
 describe('Smoke tests for Dancing Goat site', () => {
 
   beforeEach(() => {
-    cy.visit('/')
+    cy.visit('/', {timeout: 10000})
     cy.fixture('data.json').as('data')
   })
 

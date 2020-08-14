@@ -3,10 +3,10 @@
 describe('Store tests for Dancing Goat site', () => {
 
   beforeEach(() => {
-    cy.visit('/')
+    cy.visit('/', {timeout: 10000})
     cy.fixture('data.json').as('data')
   })
-
+  
   context('en', () => {
     it('validate Coffee products in store', () => {
       cy.get('@data').then(data => {
@@ -58,7 +58,5 @@ describe('Store tests for Dancing Goat site', () => {
         })
       })
     })
-
   })
-
 })
