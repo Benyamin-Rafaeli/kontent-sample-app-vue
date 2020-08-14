@@ -22,16 +22,16 @@ cache:
     - LATEST_CHROMEDRIVER_VERSION=`curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE`
     - curl https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip -O
     - unzip chromedriver_linux64.zip -d ~/bin
-    - chromedriver -v
-    - google-chrome -v
+#    - chromedriver -v
+#    - google-chrome -v
 override:
   - npm ci
   - npm run cy:verify
 
 
 before_script:
-  - chromedriver -v
-  - google-chrome -v
+#  - chromedriver -v
+#  - google-chrome -v
 #  - run chromedriver --version
 #  - LATEST_CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"`
 #  - curl "https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
