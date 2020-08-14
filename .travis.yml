@@ -5,7 +5,8 @@ addons:
   ## Ubuntu 16+ (libgconf-2-4) does not install this dependency by default, so we need to install it ourselves
   packages: libgconf-2-4
   chrome: stable
-  firefox: stable
+  ## firefox: "49.0" or latest version
+  firefox: latest
 
 cache:
   npm: true
