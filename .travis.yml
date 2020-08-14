@@ -63,6 +63,7 @@ jobs:
       <<: *defaults
 
 script:
+  - echo '##====> print all Travis environment variables for debugging'
   # print all Travis environment variables for debugging
   - $(npm bin)/print-env TRAVIS
   - $(npm bin)/print-env COMMIT_INFO_SHA
