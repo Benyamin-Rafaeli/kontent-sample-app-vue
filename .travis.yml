@@ -2,40 +2,31 @@ dist: xenial
 
 #dist:
 #  - trusty
-language:
-  - node_js
-node_js:
-  - stable
+language: node_js
+node_js: stable
 addons:
   chrome: stable
 
-#cache:
-#  directories:
-#    - ~/.npm
-#    - ~/.cache
-
 cache:
-  bundler: true
-    - node -v
-    - npm i -g
-    - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
-    - LATEST_CHROMEDRIVER_VERSION=`curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE`
-    - curl https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip -O
-    - unzip chromedriver_linux64.zip -d ~/bin
-#    - chromedriver -v
-#    - google-chrome -v
+  directories:
+    - ~/.npm
+    - ~/.cache
+
+#cache:
+#  bundler: true
+#    - node -v
+#    - npm i -g
+#    - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
+#    - LATEST_CHROMEDRIVER_VERSION=`curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE`
+#    - curl https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip -O
+#    - unzip chromedriver_linux64.zip -d ~/bin
+
 override:
   - npm ci
   - npm run cy:verify
 
 
 before_script:
-#  - chromedriver -v
-#  - google-chrome -v
-#  - run chromedriver --version
-#  - LATEST_CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"`
-#  - curl "https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
-#  - unzip chromedriver_linux64.zip -d ~/bin
 
 defaults: &defaults
   script:
@@ -48,7 +39,7 @@ jobs:
       env:
         - STAGE_NAME="1x-electron on Travis CI"
       <<: *defaults
-    # run tests in parallel by including several test jobs with same name variable
+    ## run tests in parallel by including several test jobs with same name variable
     - stage: test
       env:
         - STAGE_NAME="4x-electron on Travis CI"
