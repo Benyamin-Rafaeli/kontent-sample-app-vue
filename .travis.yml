@@ -2,8 +2,11 @@ dist: xenial
 language: node_js
 node_js: stable
 addons:
+  ## Ubuntu 16+ (libgconf-2-4) does not install this dependency by default, so we need to install it ourselves
   packages: libgconf-2-4
   chrome: stable
+  firefox: stable
+
 cache:
   npm: true
   directories: ~/.cache
@@ -20,12 +23,14 @@ cache:
 #    - curl https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip -O
 #    - unzip chromedriver_linux64.zip -d ~/bin
 
-override: npm ci
+#override: npm ci
+install: npm ci
+
 #  - npm ci
 #  - npm run cy:verify
 
 
-before_script:
+#before_script:
 
 defaults: &defaults
   script:
@@ -55,3 +60,9 @@ jobs:
       env:
         - STAGE_NAME="4x-electron on Travis CI"
       <<: *defaults
+
+script:
+  # print all Travis environment variables for debugging
+  - $(npm bin)/print-env TRAVIS
+  - $(npm bin)/print-env COMMIT_INFO_SHA
+  - $(npm bin)/cypress run --record
