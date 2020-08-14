@@ -12,24 +12,7 @@ cache:
   npm: true
   directories: ~/.cache
 
-#    - ~/.npm
-#    - ~/.cache
-
-#cache:
-#  bundler: true
-#    - node -v
-#    - npm i -g
-#    - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
-#    - LATEST_CHROMEDRIVER_VERSION=`curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE`
-#    - curl https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip -O
-#    - unzip chromedriver_linux64.zip -d ~/bin
-
-#override: npm ci
 install: npm ci
-
-#  - npm ci
-#  - npm run cy:verify
-
 
 #before_script:
 
@@ -63,8 +46,13 @@ jobs:
       <<: *defaults
 
 script:
-  - echo '##====> print all Travis environment variables for debugging'
+  - echo $"##====> print all Travis environment variables for debugging"
   # print all Travis environment variables for debugging
-  - $(npm bin)/print-env TRAVIS
-  - $(npm bin)/print-env COMMIT_INFO_SHA
-  - $(npm bin)/cypress run --record
+  - echo $TRAVIS_COMMIT
+  - echo $TRAVIS_TAG
+  - echo $TRAVIS_BRANCH
+  - echo $TRAVIS_BUILD_NUMBER
+  - echo $TRAVIS_REPO_SLUG
+
+after_failure:
+  - cat MSBuild_*.failure.txt
