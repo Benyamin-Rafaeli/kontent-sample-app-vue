@@ -1,16 +1,15 @@
 dist: xenial
-
-#dist:
-#  - trusty
 language: node_js
 node_js: stable
 addons:
+  packages: libgconf-2-4
   chrome: stable
-
 cache:
-  directories:
-    - ~/.npm
-    - ~/.cache
+  npm: true
+  directories: ~/.cache
+
+#    - ~/.npm
+#    - ~/.cache
 
 #cache:
 #  bundler: true
@@ -21,9 +20,9 @@ cache:
 #    - curl https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip -O
 #    - unzip chromedriver_linux64.zip -d ~/bin
 
-override:
-  - npm ci
-  - npm run cy:verify
+override: npm ci
+#  - npm ci
+#  - npm run cy:verify
 
 
 before_script:
