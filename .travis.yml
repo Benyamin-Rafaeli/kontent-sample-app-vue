@@ -12,21 +12,39 @@ cache:
   npm: true
   directories: ~/.cache
 
-install: npm ci & Xvfb :99 & export DISPLAY=:99
+install: npm ci
 
 #before_script:
 
 defaults: &defaults
   script:
+    - echo ">>>>>>>>> CONTAINERS [defaults] FILES <<<<<<<<<<<<"
     - npm run serve & npm test
     - kill $(jobs -p) || true
+    # print all Travis environment variables for debugging
+    - echo $TRAVIS_COMMIT
+    - echo $TRAVIS_TAG
+    - echo $TRAVIS_BRANCH
+    - echo $TRAVIS_BUILD_NUMBER
+    - echo $TRAVIS_REPO_SLUG
 jobs:
   include:
-#    ## we have multiple jobs to execute using just a single stage
-#    - stage: test
-#      env:
-#        - STAGE_NAME="1x-electron on Travis CI"
-#      <<: *defaults
+    - stage: test
+      env:
+        - STAGE_NAME="1x-electron on Travis CI"
+      <<: *defaults
+    - stage: test
+        env:
+          - STAGE_NAME="1x-electron on Travis CI"
+        <<: *defaults
+    - stage: test
+        env:
+          - STAGE_NAME="1x-electron on Travis CI"
+        <<: *defaults
+    - stage: test
+        env:
+          - STAGE_NAME="1x-electron on Travis CI"
+        <<: *defaults
     ## run tests in parallel by including several test jobs with same name variable
     - stage: test
       env:
@@ -45,15 +63,6 @@ jobs:
         - STAGE_NAME="4x-electron on Travis CI"
       <<: *defaults
 
-script:
-  - echo ">>>>>>>>> CONTAINERS LOG FILES <<<<<<<<<<<<"
-  # print all Travis environment variables for debugging
-  - echo $TRAVIS_COMMIT
-  - echo $TRAVIS_TAG
-  - echo $TRAVIS_BRANCH
-  - echo $TRAVIS_BUILD_NUMBER
-  - echo $TRAVIS_REPO_SLUG
-
-after_failure:
-  echo " >>>>> testsummary log file <<<< "
-  - cat MSBuild_*.failure.txt
+#after_failure:
+#  echo " >>>>> testsummary log file <<<< "
+#  - cat MSBuild_*.failure.txt
