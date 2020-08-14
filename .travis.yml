@@ -12,7 +12,7 @@ cache:
   npm: true
   directories: ~/.cache
 
-install: npm ci
+install: npm ci & Xvfb :99 & export DISPLAY=:99
 
 #before_script:
 
