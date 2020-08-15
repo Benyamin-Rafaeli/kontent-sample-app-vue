@@ -20,8 +20,9 @@ install: npm ci
 
 defaults: &defaults
   script:
-    - npm run serve & npm test
-    - npm run cy:run -- --record --parallel --group $STAGE_NAME
+#    - npm run serve & npm test
+    - npm run serve & npm test -- --record --parallel --group $STAGE_NAME
+#    - npm run cy:run -- --record --parallel --group $STAGE_NAME
     - kill $(jobs -p) || true
 jobs:
   include:
