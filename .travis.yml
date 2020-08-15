@@ -8,7 +8,7 @@ addons:
   chrome: stable
   ## firefox: "49.0" or latest version
   firefox: latest
-  edge: latest
+  edge: true
 
 cache:
   npm: true
