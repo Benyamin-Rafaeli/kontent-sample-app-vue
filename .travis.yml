@@ -20,8 +20,8 @@ install: npm ci
 
 defaults: &defaults
   script:
-#    - npm run serve & npm test
-    - npm run serve & npm test -- --record --parallel --group $STAGE_NAME
+    - npm run serve & npm test
+#    - npm run serve & npm test -- --record --parallel --group $STAGE_NAME
 #    - npm run cy:run -- --record --parallel --group $STAGE_NAME
     - kill $(jobs -p) || true
 jobs:
@@ -30,34 +30,22 @@ jobs:
       env:
         - STAGE_NAME="1x-electron on Travis CI"
       <<: *defaults
+#    ## run tests in parallel by including several test jobs with same name variable
 #    - stage: test
 #      env:
-#        - STAGE_NAME="1x-electron on Travis CI"
+#        - STAGE_NAME="4x-electron on Travis CI"
 #      <<: *defaults
 #    - stage: test
 #      env:
-#        - STAGE_NAME="1x-electron on Travis CI"
+#        - STAGE_NAME="4x-electron on Travis CI"
 #      <<: *defaults
 #    - stage: test
 #      env:
-#        - STAGE_NAME="1x-electron on Travis CI"
+#        - STAGE_NAME="4x-electron on Travis CI"
 #      <<: *defaults
-    ## run tests in parallel by including several test jobs with same name variable
-    - stage: test
-      env:
-        - STAGE_NAME="4x-electron on Travis CI"
-      <<: *defaults
-    - stage: test
-      env:
-        - STAGE_NAME="4x-electron on Travis CI"
-      <<: *defaults
-    - stage: test
-      env:
-        - STAGE_NAME="4x-electron on Travis CI"
-      <<: *defaults
-    - stage: test
-      env:
-        - STAGE_NAME="4x-electron on Travis CI"
-      <<: *defaults
+#    - stage: test
+#      env:
+#        - STAGE_NAME="4x-electron on Travis CI"
+#      <<: *defaults
 
 
