@@ -4,11 +4,11 @@ language: node_js
 node_js: 14.8.0
 addons:
   ## Ubuntu 16+ (libgconf-2-4) does not install this dependency by default, so we need to install it ourselves
-  packages: libgconf-2-4  // try without
-#  chrome: stable // try without
+  packages: libgconf-2-4
+  chrome: stable
   ## firefox: "49.0" or latest version
-#  firefox: latest // try without
-#  edge: latest // try without
+  firefox: latest
+  edge: latest
 
 cache:
   npm: true
