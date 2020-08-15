@@ -1,13 +1,14 @@
 dist: xenial
 language: node_js
-node_js: stable
+#node_js: stable
+node_js: 14.8.0
 addons:
   ## Ubuntu 16+ (libgconf-2-4) does not install this dependency by default, so we need to install it ourselves
-  packages: libgconf-2-4
-  chrome: stable
+#  packages: libgconf-2-4  // try without
+#  chrome: stable // try without
   ## firefox: "49.0" or latest version
-  firefox: latest
-  edge: latest
+#  firefox: latest // try without
+#  edge: latest // try without
 
 cache:
   npm: true
@@ -20,6 +21,7 @@ install: npm ci
 defaults: &defaults
   script:
     - npm run serve & npm test
+    - npm run cy:run -- --record --parallel --group $STAGE_NAME
     - kill $(jobs -p) || true
 jobs:
   include:
@@ -27,18 +29,18 @@ jobs:
       env:
         - STAGE_NAME="1x-electron on Travis CI"
       <<: *defaults
-    - stage: test
-      env:
-        - STAGE_NAME="1x-electron on Travis CI"
-      <<: *defaults
-    - stage: test
-      env:
-        - STAGE_NAME="1x-electron on Travis CI"
-      <<: *defaults
-    - stage: test
-      env:
-        - STAGE_NAME="1x-electron on Travis CI"
-      <<: *defaults
+#    - stage: test
+#      env:
+#        - STAGE_NAME="1x-electron on Travis CI"
+#      <<: *defaults
+#    - stage: test
+#      env:
+#        - STAGE_NAME="1x-electron on Travis CI"
+#      <<: *defaults
+#    - stage: test
+#      env:
+#        - STAGE_NAME="1x-electron on Travis CI"
+#      <<: *defaults
     ## run tests in parallel by including several test jobs with same name variable
     - stage: test
       env:
