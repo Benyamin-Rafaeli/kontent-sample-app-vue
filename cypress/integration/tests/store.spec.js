@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('Store tests for Dancing Goat site', () => {
+describe('Store tests for Dancing Goat site', () => { // {browser: 'firefox'},
 
   beforeEach(() => {
     cy.visit('/')

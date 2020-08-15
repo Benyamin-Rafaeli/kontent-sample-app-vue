@@ -7,10 +7,11 @@ addons:
   chrome: stable
   ## firefox: "49.0" or latest version
   firefox: latest
+  edge: latest
 
 cache:
   npm: true
-  directories: ~/.cache
+  directories: ~/.cache ~/.npm
 
 install: npm ci
 
@@ -27,17 +28,17 @@ jobs:
         - STAGE_NAME="1x-electron on Travis CI"
       <<: *defaults
     - stage: test
-        env:
-          - STAGE_NAME="1x-electron on Travis CI"
-        <<: *defaults
+      env:
+        - STAGE_NAME="1x-electron on Travis CI"
+      <<: *defaults
     - stage: test
-        env:
-          - STAGE_NAME="1x-electron on Travis CI"
-        <<: *defaults
+      env:
+        - STAGE_NAME="1x-electron on Travis CI"
+      <<: *defaults
     - stage: test
-        env:
-          - STAGE_NAME="1x-electron on Travis CI"
-        <<: *defaults
+      env:
+        - STAGE_NAME="1x-electron on Travis CI"
+      <<: *defaults
     ## run tests in parallel by including several test jobs with same name variable
     - stage: test
       env:
@@ -56,6 +57,4 @@ jobs:
         - STAGE_NAME="4x-electron on Travis CI"
       <<: *defaults
 
-#after_failure:
-#  echo " >>>>> testsummary log file <<<< "
-#  - cat MSBuild_*.failure.txt
+
